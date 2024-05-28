@@ -22,4 +22,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-first-app';
+  servers = ['TestServer', 'TestServer 2', 'TestServer 3'];
 }

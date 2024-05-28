@@ -1,1 +1,27 @@
 <!--Combining all form of Databinding Start -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <input type="text" class="form-control" id="" [(ngModel)]="data">
+            <button type="button" class="btn btn-primary" [disabled]="data === ''" (click)="data = ''">Reset
+                User</button>
+            <!-- if else => start -->
+            <p *ngIf="data !==''; else noServer">Server Created!</p>
+            <ng-template #noServer>
+                <span>Server wasn't Created</span>
+            </ng-template>
+            <!-- if else => end -->
+
+            <!--- *ngIf with onClick start -->
+            <Br /><br />
+            <button (click)="showDataBtn()" role="button">Show Now</button>
+            <Br /><br />
+            
+            <p *ngIf="showData" >It has data that I got once I click on the button</p>
+            <!-- *ngIf with onClick end -->
+            
+          
+
+        </div>
+    </div>
+</div>

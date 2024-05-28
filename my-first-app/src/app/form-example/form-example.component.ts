@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './form-example.component.css'
 })
 export class FormExampleComponent {
+  data: string = '';
+  showData: boolean = false;
+
+  showDataBtn() {
+    this.showData = true;
+  }
 
 }

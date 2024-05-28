@@ -1,0 +1,10 @@
+p {
+    transition: .5s all ease-in-out;
+    right: auto;
+}
+
+.Online {
+    transition: .5s all ease-in-out;
+    right: 100px;
+    position:relative;
+}

@@ -5,11 +5,11 @@
 
 <!-- [property]="data" : Property Binding (It is use to manipulate the property into templet) -->
 <!-- It's only disable when the property would be true -->
-<button type="button" class="btn btn-primary mb-3" [disabled]="btnDisable" >Add Server</button> 
+<button type="button" class="btn btn-primary mb-3" [disabled]="btnDisable">Add Server</button>
 <p [innerText]="btnDisable"></p>
 
 <!-- It's only disable when the property would be false -->
-<button type="button" class="btn btn-primary mb-3" [disabled]="!btnDisable" >Add Server</button>
+<button type="button" class="btn btn-primary mb-3" [disabled]="!btnDisable">Add Server</button>
 <p [innerHTML]="btnDisable"></p>
 
 <br />
@@ -17,7 +17,7 @@
 <br />
 
 <!-- (event)="function()" : Event Binding (It's trigger event as per the event function and show data) -->
-<button type="button" (click)="onEventBinding()" >Create Server</button>
+<button type="button" (click)="onEventBinding()">Create Server</button>
 <p>{{eventBindingText}}</p>
 
 <br />
@@ -36,3 +36,11 @@
 {{ ngModelData }}
 
 <br />
+
+<!-- dynamic ngStyle Start -->
+<p [ngStyle]="{backgroundColor: getColor(), padding: '10px', color: 'white', borderRadius: '5px', letterSpacing: '1px'}" >Server Id is {{serverStyleId}} and Status is {{serverStyleStatus}}</p>
+<!-- dynamic ngStyle End -->
+
+<!-- dynamic ngClass Start -->
+<p [ngClass]="{Online: serverStyleStatus === 'Online' }" [ngStyle]="{backgroundColor: getColor(), padding: '10px', color: 'white', borderRadius: '5px', letterSpacing: '1px'}" >Server Id is {{serverStyleId}} and Status is {{serverStyleStatus}}</p>
+<!-- dynamic ngClass End-->

@@ -1,1 +1,25 @@
-<span>Server Works</span>
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-12">
+                <div class="">
+                    <input type="text" class="form-control" placeholder="Enter Server Name" [(ngModel)]="serverName" />
+                    <br />
+                    <button type="button" role="button" (click)="ngForButton()" >Add New Server</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+<!-- *ngFor Start -->
+<ul >
+    <li *ngFor="let server of servers; let i = index " [ngStyle]="{background: (i + 1) > 5 ? 'blue': 'white', color: (i + 1) > 5 ? 'white' : 'black'}" [ngClass]="{'text-white' : i > 5}" >{{(i + 1)}} {{server}}</li>
+</ul><br /><br />
+<!-- *ngFor end -->
+
+
+
+
+

@@ -10,6 +10,10 @@ import { pipe } from 'rxjs';
   styleUrl: './servers.component.css',
 })
 export class ServersComponent {
+  //ngStyle
+  serverStyleStatus: string;
+  serverStyleId: Number = 10;
+
   //ngModel
   ngModelData: string = '';
 
@@ -35,6 +39,9 @@ export class ServersComponent {
     setTimeout(() => {
       return this.btnDisable = false;
     }, 1000);
+    this.serverStyleId = Math.random();
+    this.serverStyleStatus = Math.random() > .5 ? 'Online' : 'Offline';
+    debugger;
   }
 
   onEventBinding() {
@@ -51,6 +58,11 @@ export class ServersComponent {
       By casting it, you're informing TypeScript that event.target is an HTMLInputElement,
       which does have a value property.*/
 
+  }
+
+  getColor() {
+    debugger;
+    return this.serverStyleStatus === 'Online' ? 'green' : 'red';
   }
 
 }
