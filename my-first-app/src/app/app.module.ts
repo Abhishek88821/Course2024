@@ -7,6 +7,16 @@ import { ServersComponent } from './servers/servers.component';
 import { WarningAlertsComponent } from './warning-alerts/warning-alerts.component';
 import { SuccessAlertsComponent } from './success-alerts/success-alerts.component';
 import { FormExampleComponent } from './form-example/form-example.component';
+import { HeaderComponent } from './MainComponent/header/header.component';
+import { FooterComponent } from './MainComponent/footer/footer.component';
+import { RecipesComponent } from './MainComponent/recipes/recipes.component';
+import { RecipesListComponent } from './MainComponent/recipes-list/recipes-list.component';
+import { RecipesDetailComponent } from './MainComponent/recipes-detail/recipes-detail.component';
+import { RecipeItemComponent } from './MainComponent/recipes-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './MainComponent/shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './MainComponent/shopping-list/shopping-edit/shopping-edit.component';
+import { CockpitComponent } from './Helper/cockpit/cockpit.component';
+import { ServerElementComponent } from './Helper/server-element/server-element.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +25,17 @@ import { FormExampleComponent } from './form-example/form-example.component';
     ServersComponent,
     WarningAlertsComponent,
     SuccessAlertsComponent,
-    FormExampleComponent
+    FormExampleComponent,
+    HeaderComponent,
+    FooterComponent,
+    RecipesComponent,
+    RecipesListComponent,
+    RecipesDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
+    CockpitComponent,
+    ServerElementComponent,
   ],
   imports: [
     BrowserModule,

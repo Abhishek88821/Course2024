@@ -1,19 +1,44 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-lg-12 col-12">
             <h1>App Components</h1>
             <hr>
-            <app-server>
+            <app-server *ngFor="let server of servers" >
             </app-server>
-            <app-servers></app-servers>
-            <!-- Here how we call attributes selectors (here angular select by atribute not as element itself ) -->
-            <!-- <div app-servers></div> -->
-            <!-- Here I call it by class name -->
-            <!-- <div class="app-servers"></div> -->
-            <app-warning-alerts></app-warning-alerts>
+            <app-servers></app-servers> -->
+<!-- Here how we call attributes selectors (here angular select by atribute not as element itself ) -->
+<!-- <div app-servers></div> -->
+<!-- Here I call it by class name -->
+<!-- <div class="app-servers"></div> -->
+<!-- <app-warning-alerts></app-warning-alerts>
             <app-success-alerts></app-success-alerts>
             <app-form-example></app-form-example>
-              
+            
         </div>
     </div>
-</div>
+</div> -->
+<section>
+    <app-header></app-header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <app-recipes></app-recipes>
+            </div>
+            <div class="col-md-12">
+                <app-shopping-list></app-shopping-list>
+            </div>
+            <div class="col-md-12">
+                <!-- <app-cockpit (serverCreated)="onServerAdded($event)"
+                    (bluePrintCreated)="onBlueprintAdded($event)"></app-cockpit> -->
+                    <app-cockpit (serverCreated)="onServerAdded($event)"
+                    (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
+                <hr />
+            </div>
+            <div class="col-md-12">
+                <app-server-element *ngFor="let serverElement of serverElements"
+                    [element]="serverElement"></app-server-element>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</section>
