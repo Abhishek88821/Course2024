@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
   templateUrl: './cockpit.component.html',
   styleUrl: './cockpit.component.css',
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{
@@ -15,8 +16,8 @@ export class CockpitComponent implements OnInit {
   //   serverContent: string;
   // }>();
 
-/* Inside the ('bpCreated') of output is called alias, we can create alias in @Output and @Input */
 
+/* Inside the ('bpCreated') of output is called alias, we can create alias in @Output and @Input */
   @Output('bpCreated') bluePrintCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
@@ -29,7 +30,8 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {}
 
   /* Output Emit */
-  onAddServer() {
+  onAddServer(localReference: HTMLInputElement /* Local Reference */) {
+    console.log(localReference.value);
     this.serverCreated.emit({
       serverName: this.newServerName,
       serverContent: this.newServerContent,
@@ -42,5 +44,6 @@ export class CockpitComponent implements OnInit {
       serverContent: this.newServerContent,
     });
   }
-  
+
+
 }
