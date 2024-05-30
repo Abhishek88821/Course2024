@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -7,6 +7,10 @@ import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@ang
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class CockpitComponent implements OnInit {
+
+  // @ViewChild('localReference') localRefrenceView;
+  @ViewChild('localReference') localRefrenceView : ElementRef;
+
   @Output() serverCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
@@ -31,7 +35,9 @@ export class CockpitComponent implements OnInit {
 
   /* Output Emit */
   onAddServer(localReference: HTMLInputElement /* Local Reference */) {
-    console.log(localReference.value);
+    // console.log(localReference.value);
+    // alert(this.localRefrenceView);
+    console.log(this.localRefrenceView.nativeElement.value); //We can also use viewchild for showing data by localReference
     this.serverCreated.emit({
       serverName: this.newServerName,
       serverContent: this.newServerContent,

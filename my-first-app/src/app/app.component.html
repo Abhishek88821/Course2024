@@ -30,13 +30,25 @@
             <div class="col-md-12">
                 <!-- <app-cockpit (serverCreated)="onServerAdded($event)"
                     (bluePrintCreated)="onBlueprintAdded($event)"></app-cockpit> -->
-                    <app-cockpit (serverCreated)="onServerAdded($event)"
+                <app-cockpit (serverCreated)="onServerAdded($event)"
                     (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
                 <hr />
             </div>
             <div class="col-md-12">
-                <app-server-element *ngFor="let serverElement of serverElements"
-                    [element]="serverElement"></app-server-element>
+                <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement" [name]="serverElement.name" >
+
+                    <!-- it is for <ng-content> using, which runs in parent to child Start -->
+                    <p>
+                        <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content
+                            }}</strong>
+                        <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content}}</em>
+                    </p>
+                    <!-- it is for <ng-content> using, which runs in parent to child End -->
+                </app-server-element>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary" (click)="onChangeFirst()" >Change first Element</button>
+                <button class="btn btn-danger" (click)="onChangeDestroy()" style="margin-left: 5px;" >Destroy first Element</button>
             </div>
         </div>
     </div>

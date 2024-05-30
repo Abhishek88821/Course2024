@@ -46,6 +46,15 @@ export class AppComponent {
     });
   }
 
+
+  onChangeFirst() {
+    this.serverElements[0].name = "Changed";
+  }
+  
+  onChangeDestroy() {
+    this.serverElements.splice(0, 1);
+    // this.serverElements;
+  }
   
 
 }
