@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-danger" type="button" role="button" (click)="stopGame()">Stop the Game</button>
+                <button class="btn btn-success" type="button" role="button" (click)="startGame()" style="margin-left: 5px;">Start the
+                    Game</button>
+            </div>
+            <div class="box mt-4">
+                <ul class="list-unstyled">
+                    <li *ngFor="let digit of digits" >
+                        <p *ngIf="digit % 2 == 0; else para" style="color: blue; font-weight: 600;" >Even - {{digit}}</p>
+                        <ng-template #para>
+                            <p style="color: red; font-weight: 100;">Odd - {{digit}}</p>
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
