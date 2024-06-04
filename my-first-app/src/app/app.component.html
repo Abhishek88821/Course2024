@@ -17,40 +17,39 @@
         </div>
     </div>
 </div> -->
-<app-assignment1></app-assignment1>
 <section>
-    <app-header></app-header>
+    <app-header (featureSelected)="onNavigate($event)" ></app-header>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <app-recipes></app-recipes>
+                <app-recipes *ngIf="loadedFeature === 'recipe'" ></app-recipes>
             </div>
             <div class="col-md-12">
-                <app-shopping-list></app-shopping-list>
+                <app-shopping-list *ngIf="loadedFeature === 'shopping-list'" ></app-shopping-list>
             </div>
-            <div class="col-md-12">
+            <!-- <div class="col-md-12"> -->
                 <!-- <app-cockpit (serverCreated)="onServerAdded($event)"
                     (bluePrintCreated)="onBlueprintAdded($event)"></app-cockpit> -->
-                <app-cockpit (serverCreated)="onServerAdded($event)"
+                <!-- <app-cockpit (serverCreated)="onServerAdded($event)"
                     (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
                 <hr />
             </div>
             <div class="col-md-12">
-                <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement" [name]="serverElement.name" >
+                <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement" [name]="serverElement.name" > -->
 
                     <!-- it is for <ng-content> using, which runs in parent to child Start -->
-                    <p>
+                    <!-- <p>
                         <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content
                             }}</strong>
                         <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content}}</em>
-                    </p>
+                    </p> -->
                     <!-- it is for <ng-content> using, which runs in parent to child End -->
-                </app-server-element>
-            </div>
-            <div class="col-md-12">
+                <!-- </app-server-element>
+            </div> -->
+            <!-- <div class="col-md-12">
                 <button class="btn btn-primary" (click)="onChangeFirst()" >Change first Element</button>
                 <button class="btn btn-danger" (click)="onChangeDestroy()" style="margin-left: 5px;" >Destroy first Element</button>
-            </div>
+            </div> -->
         </div>
     </div>
     <app-footer></app-footer>

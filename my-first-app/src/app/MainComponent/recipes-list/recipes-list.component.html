@@ -3,22 +3,5 @@
 </div>
 <div class="mb-4">
     <hr />
-    <a href="#" role="button" class="list-group-item clearfix mb-3" *ngFor="let recipe of recipes">
-        <div class="pull-left">
-            <h4 class="list-group-item-heading">
-                {{ recipe.name }}
-            </h4>
-            <p class="list-group-item-text">
-                {{ recipe.description }}
-            </p>
-        </div>
-        <span class="pull-right">
-            <img [src]="recipe.imagePath" class="img-responsive" style="object-fit: cover;" alt="{{ recipe.name }}"
-                [ngStyle]="{maxHeight: '50px'}" />
-
-            <!-- both approach works, first one is data binding approach and second one it string interpolation approach  -->
-
-            <!-- <img src="{{recipe.imagePath}}" class="img-responsive" alt="{{ recipe.name }}" [ngStyle]="{maxHeight: '50px'}" /> -->
-        </span>
-    </a>
+    <app-recipe-item *ngFor="let recipeItem of recipes" [recipeP]="recipeItem"  [recipeSelected]="onRecipeSelected(recipeItem)" ></app-recipe-item>
 </div>

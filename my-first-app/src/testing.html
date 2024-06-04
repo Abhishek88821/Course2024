@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacking Cards Scroll Effect</title>
+    <style>
+        body {
+            background-color: rgb(140, 140, 140);
+            z-index: 0;
+            overflow-x: hidden;
+
+            .layer {
+                height: 200px;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                text-align: center;
+                color: #ddd;
+                font-size: 3em;
+                font-family: 'Helvetica';
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                line-height: 200px;
+                box-shadow: 0px 1px 50px -10px #222;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var layers = document.getElementsByClassName("layer");
+            document.body.style.height = layers.length * 50 + 'vh';
+            setProperties(layers);
+        });
+
+        $(document).scroll(function () {
+            var layers = document.getElementsByClassName("layer");
+            setProperties(layers);
+        });
+
+        $(document).mousemove(function (e) {
+            var center = {
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 2
+            };
+            var textShadow = {
+                x: center.x - e.pageX,
+                y: center.y - e.pageY
+            };
+            var $layer = $('.layer');
+            var height = $layer.height();
+            var width = $layer.width();
+            $layer.css('text-shadow', 3 * textShadow.x / width + 'px ' + textShadow.y / height + 'px '
+                + '5px #000');
+        });
+
+        function setProperties(layers) {
+            for (var i = 0; i < layers.length; i++) {
+                setColor(layers[i], i + 1);
+                setZIndex(layers[i], i + 1);
+                setMargin(layers[i], i);
+            }
+        };
+
+        function setMargin(selector, value) {
+            var height = $(selector).height();
+            var stopPoint = (value * height) / 10;
+            var m = value * height - $(document).scrollTop();
+            selector.style.marginTop = (m <= stopPoint ? stopPoint : m) + 'px';
+        };
+
+        function setZIndex(selector, value) {
+            selector.style.zIndex = value * 100;
+        }
+
+        function setColor(selector, value) {
+            selector.style.backgroundColor = 'rgb(' + getColorValues(value * 20) + ')';
+        };
+
+        function getColorValues(value) {
+            if (value >= 100) return Array(4).join(value).match(/.{1,3}/g);
+            return Array(4).join(value).match(/.{1,2}/g);
+        };
+    </script>
+</head>
+
+<body>
+    <div class="layer1" id="layer1">
+        the
+    </div>
+    <div class="layer2" id="layer">
+        brightest
+    </div>
+    <div class="layer3" id="laye">
+        flame
+    </div>
+    <div class="layer" id="layer4">
+        casts
+    </div>
+    <div class="layer" id="layer5">
+        the
+    </div>
+    <div class="layer" id="layer6">
+        darkest
+    </div>
+    <div class="layer" id="layer7">
+        shadow
+    </div>
+
+</body>
+
+</html>

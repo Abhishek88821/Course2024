@@ -20,7 +20,10 @@ import { Component } from '@angular/core';
   //   `,
   // ],
 })
-export class AppComponent {
+export class AppComponent {  
+  loadedFeature = 'recipe';
+
+
   title = 'my-first-app';
   servers = ['TestServer', 'TestServer 2', 'TestServer 3'];
 
@@ -55,6 +58,9 @@ export class AppComponent {
     this.serverElements.splice(0, 1);
     // this.serverElements;
   }
-  
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 
 }

@@ -8,7 +8,7 @@
             </div>
             <div class="box mt-4">
                 <ul class="list-unstyled">
-                    <li *ngFor="let digit of digits" >
+                 <li *ngFor="let digit of digits" >
                         <p *ngIf="digit % 2 == 0; else para" style="color: blue; font-weight: 600;" >Even - {{digit}}</p>
                         <ng-template #para>
                             <p style="color: red; font-weight: 100;">Odd - {{digit}}</p>

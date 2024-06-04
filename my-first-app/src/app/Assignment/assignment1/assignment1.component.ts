@@ -6,18 +6,17 @@ import { Component } from '@angular/core';
   styleUrl: './assignment1.component.css',
 })
 export class Assignment1Component {
-  lastNumber: number = 0;
-
   digits: number[] = [];
-
-  startGame() {
-    setInterval(() => {
-      this.digits.push(this.lastNumber + 1);
-      this.lastNumber++;
-    }, 1000);
-  }
+  startCount: number = 0;
 
   stopGame() {
-    clearInterval(this.lastNumber);
+    clearInterval(this.startCount);
+  }
+
+  startGame() {
+    setInterval(()=> {
+      this.digits.push(this.startCount + 1);
+      this.startCount++;
+    }, 1000)
   }
 }
